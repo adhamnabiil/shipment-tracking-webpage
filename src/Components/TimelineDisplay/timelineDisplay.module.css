@@ -1,0 +1,27 @@
+.timelinePoint {
+  @apply relative my-2;
+}
+
+.timelinePoint::after {
+  @apply absolute top-[23%] left-[6px] w-[3px] h-[80%] bg-[#d0d5dd] content-[''];
+}
+
+.head {
+  @apply flex items-center justify-start gap-2 mb-2;
+}
+
+.head h2 {
+  @apply text-[black] font-[600];
+}
+
+.circle {
+  @apply w-[15px] h-[15px] bg-[#d0d5dd] rounded-full;
+}
+
+.body {
+  @apply ml-6 border border-[#d0d5dd] px-4 py-2 rounded-[5px] font-[400];
+}
+
+.time {
+  @apply text-[#667085];
+}

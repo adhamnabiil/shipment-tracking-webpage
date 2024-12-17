@@ -1,0 +1,11 @@
+.container {
+  @apply max-w-[900px] mx-auto px-4;
+}
+
+.container h1 {
+  @apply text-[20px] text-[#667085] font-[600];
+}
+
+.timelineWrapper {
+  @apply my-6;
+}

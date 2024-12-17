@@ -1,0 +1,77 @@
+.container {
+  @apply flex flex-col sm:flex-row items-start sm:items-stretch justify-center text-center py-4;
+}
+
+.step {
+  @apply relative flex flex-row items-center gap-4 sm:flex-col justify-start sm:text-center px-[20px] sm:px-[36px] py-[25px];
+}
+
+.date {
+  @apply text-[12px];
+}
+
+.checkpoint {
+  @apply flex items-center justify-center text-white w-[20px] h-[20px] border border-[#d0d5dd] rounded-full mx-auto bg-white z-[1];
+}
+
+.done {
+  @apply bg-[#0098A5];
+}
+
+.stepName {
+  @apply capitalize text-[#667085] font-[400];
+}
+
+.stepDone {
+  @apply capitalize text-[#111619] font-[600];
+}
+
+.step:not(:first-child):before {
+  @apply absolute w-[3px] sm:w-[50%] h-[50%] sm:h-[3px] content-[''] left-[26px] top-0 sm:left-0 sm:right-[50%] sm:top-[27%];
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 7px,
+    #d0d5dd 7px,
+    #d0d5dd 14px
+  );
+  @media (min-width: 640px) {
+    background: repeating-linear-gradient(
+      to right,
+      transparent 0,
+      transparent 10px,
+      #d0d5dd 10px,
+      #d0d5dd 20px
+    );
+  }
+}
+
+.step:not(:last-child):after {
+  @apply absolute w-[3px] sm:w-[50%] h-[50%] sm:h-[3px] content-['']  left-[26px] bottom-0 sm:left-[50%] sm:top-[27%];
+  background: repeating-linear-gradient(
+    to bottom,
+    #d0d5dd 0,
+    #d0d5dd 7px,
+    transparent 7px,
+    transparent 14px
+  );
+  @media (min-width: 640px) {
+    background: repeating-linear-gradient(
+      to right,
+      #d0d5dd 0,
+      #d0d5dd 10px,
+      transparent 10px,
+      transparent 20px
+    );
+  }
+}
+
+.complete:not(:last-child):after {
+  @apply absolute w-[3px] sm:w-[50%] h-[50%] sm:h-[3px] content-[''] left-[26px] bottom-0 sm:left-[50%] sm:top-[27%];
+  background: #0098a5;
+}
+
+.complete:not(:first-child):before {
+  @apply absolute w-[3px] sm:w-[50%] h-[50%] sm:h-[3px] content-[''] left-[26px] top-0 sm:left-0 sm:right-[50%] sm:top-[27%];
+  background: #0098a5;
+}
