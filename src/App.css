@@ -1,8 +1,5 @@
 body {
-  @apply m-0 p-0;
+  margin: 0;
+  padding: 0;
   font-family: "Cairo", sans-serif;
-}
-
-.error {
-  @apply text-center mt-20;
 }

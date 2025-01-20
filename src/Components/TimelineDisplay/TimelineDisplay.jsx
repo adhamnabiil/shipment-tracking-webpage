@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import styles from "./timelineDisplay.module.css";
 
 export default function TimelineDisplay({ event }) {
   const [eventDate, setEventDate] = useState(null);
@@ -46,14 +45,14 @@ export default function TimelineDisplay({ event }) {
 
   return (
     <div>
-      <div className={styles.timelinePoint}>
-        <div className={styles.head}>
-          <div className={styles.circle}></div>
-          <h2>{eventDate}</h2>
+      <div className="relative my-2 after:absolute after:top-[23%] after:left-[6px] after:w-[3px] after:h-[80%] after:bg-[#d0d5dd] after:content-['']">
+        <div className="flex items-center justify-start gap-2 mb-2">
+          <div className="w-[15px] h-[15px] bg-[#d0d5dd] rounded-full"></div>
+          <h2 className="text-[black] font-[600]">{eventDate}</h2>
         </div>
-        <div className={styles.body}>
+        <div className="ml-6 border border-[#d0d5dd] px-4 py-2 rounded-[5px] font-[400]">
           {event.state}
-          <p className={styles.time}>{eventTime}</p>
+          <p className="text-[#667085]">{eventTime}</p>
         </div>
       </div>
     </div>

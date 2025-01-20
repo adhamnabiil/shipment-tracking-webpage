@@ -4,16 +4,19 @@ import Header from "./Components/Header/Header";
 import Nav from "./Components/Nav/Nav";
 import OrderStatus from "./Components/OrderStatus/OrderStatus";
 import ProgressTimeline from "./Components/ProgressTimeline/ProgressTimeline";
+import Loading from "./Components/Loading/Loading";
 
 export default function App() {
   const [trackingNumber, setTrackingNumber] = useState();
   const [order, setOrder] = useState("");
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     async function getData() {
       if (!trackingNumber) return;
       try {
+        setIsLoading(true);
         const response = await fetch(
           `https://tracking.bosta.co/shipments/track/${trackingNumber}`,
           {
@@ -26,7 +29,7 @@ export default function App() {
 
         if (!response.ok) {
           setError("oops! Invalid tracking number");
-          return;
+          throw new Error(`HTTP error! status: ${response.status}`);
         } else {
           setError(null);
         }
@@ -36,6 +39,8 @@ export default function App() {
         setOrder(data);
       } catch (error) {
         console.error("Error fetching order data:", error.message);
+      } finally {
+        setIsLoading(false);
       }
     }
 
@@ -46,8 +51,10 @@ export default function App() {
     <div className="App">
       <Nav setTrackingNumber={setTrackingNumber} />
       <Header setTrackingNumber={setTrackingNumber} />
-      {error ? (
-        <div className="error">{error}</div>
+      {isLoading ? (
+        <Loading />
+      ) : error ? (
+        <div className="text-center mt-20">{error}</div>
       ) : !order ? (
         <></>
       ) : (

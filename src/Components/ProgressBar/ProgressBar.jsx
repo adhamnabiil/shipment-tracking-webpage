@@ -43,7 +43,7 @@ export default function ProgressBar({ order }) {
   }
 
   return (
-    <div className={styles.container}>
+    <div className="flex flex-col sm:flex-row items-start sm:items-stretch justify-center text-center py-4">
       {steps.map((step, index) => (
         <div
           className={`${styles.step} ${
@@ -64,7 +64,7 @@ export default function ProgressBar({ order }) {
             }`}
           >
             {step}
-            {index + 1 == stepsDone && <p className={styles.date}>{date}</p>}
+            {index + 1 == stepsDone && <p className="text-[12px]">{date}</p>}
           </div>
         </div>
       ))}

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import styles from "./nav.module.css";
 
 export default function Nav({ setTrackingNumber }) {
   const [active, setActive] = useState(false);
@@ -14,13 +13,19 @@ export default function Nav({ setTrackingNumber }) {
   }
 
   return (
-    <nav className={styles.navbar}>
+    <nav className="sm:hidden py-2 px-4 shadow-lg flex justify-between gap-8 items-center">
       <img src="./Logo.png" alt="logo" width={90} />
-      <div className={styles.search}>
-        <img onClick={handleClick} src="./searchGray.svg" alt="search" />
+      <div className="flex">
+        <img
+          className="cursor-pointer"
+          onClick={handleClick}
+          src="./searchGray.svg"
+          alt="search"
+        />
         {active && (
           <form action="#" onSubmit={(e) => handleSubmit(e)}>
             <input
+              className="w-full text-[14px] border-2 rounded-lg px-2 py-1 outline-none"
               type="search"
               value={value}
               onChange={(e) => setValue(e.target.value)}
