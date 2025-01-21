@@ -30,7 +30,7 @@
     transparent 7px,
     #d0d5dd 7px,
     #d0d5dd 14px
-  );
+  ) !important ;
   @media (min-width: 640px) {
     background: repeating-linear-gradient(
       to right,
@@ -50,7 +50,7 @@
     #d0d5dd 7px,
     transparent 7px,
     transparent 14px
-  );
+  ) !important ;
   @media (min-width: 640px) {
     background: repeating-linear-gradient(
       to right,
