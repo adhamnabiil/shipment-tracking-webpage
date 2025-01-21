@@ -43,7 +43,7 @@ export default function ProgressBar({ order }) {
   }
 
   return (
-    <div className="flex flex-col sm:flex-row items-start sm:items-stretch justify-center text-center py-4">
+    <div className={styles.container}>
       {steps.map((step, index) => (
         <div
           className={`${styles.step} ${
