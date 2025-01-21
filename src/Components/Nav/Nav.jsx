@@ -1,6 +1,10 @@
 import { useState } from "react";
 
-export default function Nav({ setTrackingNumber }) {
+export default function Nav({
+  setTrackingNumber,
+  selectedLang,
+  setSelectedLang,
+}) {
   const [active, setActive] = useState(false);
   const [value, setValue] = useState("");
   function handleClick() {
@@ -15,7 +19,7 @@ export default function Nav({ setTrackingNumber }) {
   return (
     <nav className="sm:hidden py-2 px-4 shadow-lg flex justify-between gap-8 items-center">
       <img src="./Logo.png" alt="logo" width={90} />
-      <div className="flex">
+      <div className="flex gap-2">
         <img
           className="cursor-pointer"
           onClick={handleClick}
@@ -32,6 +36,15 @@ export default function Nav({ setTrackingNumber }) {
             />
           </form>
         )}
+        <select
+          name="language"
+          id="language"
+          value={selectedLang}
+          onChange={(e) => setSelectedLang(e.target.value)}
+        >
+          <option value="en">English</option>
+          <option value="ar">عربي</option>
+        </select>
       </div>
     </nav>
   );

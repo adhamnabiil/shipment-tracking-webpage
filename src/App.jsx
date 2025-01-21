@@ -5,12 +5,21 @@ import Nav from "./Components/Nav/Nav";
 import OrderStatus from "./Components/OrderStatus/OrderStatus";
 import ProgressTimeline from "./Components/ProgressTimeline/ProgressTimeline";
 import Loading from "./Components/Loading/Loading";
+import { useTranslation } from "react-i18next";
+import "./i18n";
 
 export default function App() {
   const [trackingNumber, setTrackingNumber] = useState();
   const [order, setOrder] = useState("");
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [selectedLang, setSelectedLang] = useState("en");
+  const { i18n } = useTranslation();
+
+  //change language when the selected language changes
+  useEffect(() => {
+    i18n.changeLanguage(selectedLang);
+  }, [selectedLang]);
 
   useEffect(() => {
     async function getData() {
@@ -49,8 +58,16 @@ export default function App() {
 
   return (
     <div className="App">
-      <Nav setTrackingNumber={setTrackingNumber} />
-      <Header setTrackingNumber={setTrackingNumber} />
+      <Nav
+        setTrackingNumber={setTrackingNumber}
+        selectedLang={selectedLang}
+        setSelectedLang={setSelectedLang}
+      />
+      <Header
+        setTrackingNumber={setTrackingNumber}
+        selectedLang={selectedLang}
+        setSelectedLang={setSelectedLang}
+      />
       {isLoading ? (
         <Loading />
       ) : error ? (
