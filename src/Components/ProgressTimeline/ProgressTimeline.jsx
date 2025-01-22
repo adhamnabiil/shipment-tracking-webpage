@@ -1,9 +1,11 @@
+import { useTranslation } from "react-i18next";
 import TimelineDisplay from "../TimelineDisplay/TimelineDisplay";
 import { useEffect, useState } from "react";
 
-export default function ProgressTimeline({ order }) {
+export default function ProgressTimeline({ order, selectedLang }) {
   const [eventsGroupedByDate, setEventsGroupedByDate] = useState({});
   const [orderedDates, setOrderedDates] = useState([]);
+  const { t } = useTranslation();
 
   // Grouping the transit events by date
   useEffect(() => {
@@ -35,7 +37,8 @@ export default function ProgressTimeline({ order }) {
   function dateFormat(date) {
     if (!date) return;
 
-    const formattedDate = new Date(date).toLocaleDateString(undefined, {
+    const local = selectedLang === "en" ? "en-US" : "ar-EG";
+    const formattedDate = new Date(date).toLocaleDateString(local, {
       weekday: "short",
       month: "short",
       day: "numeric",
@@ -46,31 +49,52 @@ export default function ProgressTimeline({ order }) {
   return (
     <div className="max-w-[900px] mx-auto px-4">
       {!order.TransitEvents ? (
-        <h1 className="text-[20px] text-[#667085] font-[600]">
-          No tracking details available
+        <h1
+          className={`text-[20px] ${
+            selectedLang === "ar" && "text-right"
+          } text-[#667085] font-[600]`}
+        >
+          {t("noDetails")}
         </h1>
       ) : (
         <>
-          <h1 className="text-[20px] text-[#667085] font-[600]">
-            Tracking details
+          <h1
+            className={`text-[20px] text-[#667085] ${
+              selectedLang === "ar" && "text-right"
+            } font-[600]`}
+          >
+            {t("detailsTitle")}
           </h1>
 
           {/* timeline */}
           <div className="my-6">
             {orderedDates.map((date) => {
+              dateFormat(date);
               return (
                 <div
                   key={date}
-                  className="relative after:absolute after:top-[25px] after:left-[7px] after:w-[2px] after:h-[100%] after:bg-[#d0d5dd] after:content-['']"
+                  className={`relative after:absolute after:top-[25px] ${
+                    selectedLang === "en"
+                      ? "after:left-[7px]"
+                      : "after:right-[7px]"
+                  } after:w-[2px] after:h-[100%] after:bg-[#d0d5dd] after:content-['']`}
                 >
-                  <div className="flex items-center justify-start gap-2 my-6">
+                  <div
+                    className={`flex ${
+                      selectedLang === "ar" && "flex-row-reverse"
+                    } items-center justify-start gap-2 my-6`}
+                  >
                     <div className="w-[15px] h-[15px] bg-[#d0d5dd] rounded-full"></div>
                     <h2 className="text-[black] font-[600]">
                       {dateFormat(date)}
                     </h2>
                   </div>
                   {eventsGroupedByDate[date]?.map((event, index) => (
-                    <TimelineDisplay event={event} key={index} />
+                    <TimelineDisplay
+                      event={event}
+                      key={index}
+                      selectedLang={selectedLang}
+                    />
                   ))}
                 </div>
               );

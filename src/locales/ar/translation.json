@@ -8,5 +8,16 @@
   "outForDelivery": "خارج للتوصيل",
   "delivered": "تم التوصيل",
   "noDetails": "لا توجد تفاصيل تتبع",
-  "detailsTitle": "تفاصيل التتبع"
+  "detailsTitle": "تفاصيل التتبع",
+  "Your order is created, Bosta will pick it up once your shipper is ready": "تم إنشاء الطلب، سيتم استلامه بعد إنشاء الشحنة",
+  "Order is received at Bosta warehouses and being processed.": "تم استلام الطلب في مستودعات بوسطة ويتم التجهيز",
+  "Order is being prepared for delivery.": "يتم تجهيز الطلب للتوصيل",
+  "Order is out for delivery": "الطلب خرج للتوصيل",
+  "Order is rescheduled as you were not reachable on the phone": "تم تأجيل التوصيل لأننا لم نستطع التواصل معك على الهاتف",
+  "Your shipper requested a pickup. Bosta will pick it up soon": "تم طلب استلام الشحنة، سيتم استلامه قريبا",
+  "Order is being transferred to Bosta's Hubs.": "يتم نقل الطلب إلى مراكز بوسطة",
+  "Order is delivered": "تم التوصيل",
+  "Delivered": "تم التوصيل",
+  "Returned": "تم استرجاع الطلب",
+  "Deleted": "تم حذف الطلب"
 }

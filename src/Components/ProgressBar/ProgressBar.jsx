@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "./progressBar.module.css";
 import { useTranslation } from "react-i18next";
 
-export default function ProgressBar({ order }) {
+export default function ProgressBar({ order, selectedLang }) {
   const [stepsDone, setStepsDone] = useState(0);
   const [date, setDate] = useState("");
   const { t } = useTranslation();
@@ -31,12 +31,14 @@ export default function ProgressBar({ order }) {
     }
 
     setDate(dateFormat(order.CurrentStatus.timestamp));
-  }, [order]);
+  }, [order, selectedLang]);
 
   function dateFormat(timestamp) {
     if (!timestamp) return;
     const date = new Date(timestamp);
-    const formattedDate = new Intl.DateTimeFormat("en-US", {
+    //localizing date
+    const local = selectedLang === "en" ? "en-US" : "ar-EG";
+    const formattedDate = new Intl.DateTimeFormat(local, {
       weekday: "short",
       month: "short",
       day: "numeric",

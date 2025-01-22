@@ -76,8 +76,8 @@ export default function App() {
         <></>
       ) : (
         <>
-          <OrderStatus order={order} />
-          <ProgressTimeline order={order} />
+          <OrderStatus order={order} selectedLang={selectedLang} />
+          <ProgressTimeline order={order} selectedLang={selectedLang} />
         </>
       )}
     </div>

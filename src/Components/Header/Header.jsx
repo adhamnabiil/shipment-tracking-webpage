@@ -56,11 +56,12 @@ export default function Header({
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
               />
-              <img
-                className="absolute top-0 bg-[#E30613] w-[60px] h-full rounded-l-[8px]"
-                src="./search.svg"
-                alt="search"
-              />
+              <button
+                type="submit"
+                className="absolute top-0 left-0 bg-[#E30613] w-[60px] h-full rounded-l-[8px] cursor-pointer"
+              >
+                <img className="w-full" src="./search.svg" alt="search" />
+              </button>
             </form>
           </div>
         </div>

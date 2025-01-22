@@ -17,9 +17,21 @@ export default function Nav({
   }
 
   return (
-    <nav className="sm:hidden py-2 px-4 shadow-lg flex justify-between gap-8 items-center">
-      <img src="./Logo.png" alt="logo" width={90} />
-      <div className="flex gap-2">
+    <nav
+      className={`sm:hidden py-2 px-4 shadow-lg flex ${
+        selectedLang === "ar" && "flex-row-reverse"
+      } justify-between gap-8 items-center`}
+    >
+      {selectedLang === "en" ? (
+        <img src="./Logo.png" alt="logo" width={90} />
+      ) : (
+        <img src="./LogoAr.png" alt="logo" width={90} />
+      )}
+      <div
+        className={`flex flex-wrap ${
+          selectedLang === "ar" && "flex-row-reverse"
+        } justify-end gap-2`}
+      >
         <img
           className="cursor-pointer"
           onClick={handleClick}
