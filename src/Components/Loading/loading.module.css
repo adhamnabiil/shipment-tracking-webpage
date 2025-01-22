@@ -1,8 +1,8 @@
 .loader {
+  margin-inline: auto;
   width: 30px;
   aspect-ratio: 1;
   display: grid;
-  place-self: center;
   margin-top: 50px;
   border-radius: 50%;
   background: linear-gradient(

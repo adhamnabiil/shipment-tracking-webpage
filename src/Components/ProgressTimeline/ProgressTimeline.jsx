@@ -114,10 +114,10 @@ export default function ProgressTimeline({ order, selectedLang }) {
         )}
       </div>
       {/* collapse button */}
-      <div>
+      <div className="flex justify-center">
         <button
           onClick={() => setIsCollapsed((prev) => !prev)}
-          className="flex items-center justify-self-center text-[#0098A5] text-[16px]"
+          className="flex items-center text-[#0098A5] text-[16px]"
         >
           {isCollapsed ? `${t("showMore")}` : `${t("showLess")}`}
           {isCollapsed ? (
