@@ -1,4 +1,12 @@
 {
   "orderTitle": "Track Your Order",
-  "orderSubTitle": "All order updates will be available through this link"
+  "orderSubTitle": "All order updates will be available through this link",
+  "order": "Order #",
+  "arrival": "Arriving by",
+  "pickedUp": "Picked Up",
+  "processing": "Processing",
+  "outForDelivery": "Out for Delivery",
+  "delivered": "Delivered",
+  "noDetails": "No tracking details available",
+  "detailsTitle": "Tracking details"
 }

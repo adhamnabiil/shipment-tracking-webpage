@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import ProgressBar from "../ProgressBar/ProgressBar";
+import { useTranslation } from "react-i18next";
 
 export default function OrderStatus({ order }) {
   const [arriveDate, setArriveDate] = useState("");
+  const { t } = useTranslation();
 
   useEffect(() => {
     const date = dateFormat(order.PromisedDate);
@@ -26,7 +28,7 @@ export default function OrderStatus({ order }) {
       <div className="max-w-[900px] mx-auto border-2 shadow rounded-[8px]">
         <div className="p-4">
           <p className="text-[#667085] text-[12px]">
-            ORDER #{order.TrackingNumber}
+            {t("order")} {order.TrackingNumber}
           </p>
           {/* if delivery reached final state or has no delivery date, show the state instead of date */}
           {order.CurrentStatus.state.toLowerCase() == "delivered" ||
@@ -37,7 +39,7 @@ export default function OrderStatus({ order }) {
             </h1>
           ) : (
             <h1 className="text-black text-[24px] font-[700]">
-              Arriving by
+              {t("arrival")}
               <span className="text-[#0098a5]"> {arriveDate}</span>
             </h1>
           )}
