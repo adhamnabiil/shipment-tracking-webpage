@@ -44,7 +44,6 @@ export default function App() {
         }
 
         const data = await response.json();
-        console.log(data);
         setOrder(data);
       } catch (error) {
         console.error("Error fetching order data:", error.message);
