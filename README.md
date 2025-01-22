@@ -1,4 +1,11 @@
-#steps to set up and run the application
+This is a react.js app created with vite
+
+## Getting Started
+
+```bash
+cd my-app
+#then
 npm install
-cd shipment-tracking-webpage
+#then
 npm run dev
+```
