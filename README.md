@@ -3,7 +3,7 @@ This is a react.js app created with vite
 ## Getting Started
 
 ```bash
-cd my-app
+cd shipment-tracking-webpage
 #then
 npm install
 #then
