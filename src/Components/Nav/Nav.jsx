@@ -51,6 +51,7 @@ export default function Nav({
         <select
           name="language"
           id="language"
+          className="bg-white outline-none"
           value={selectedLang}
           onChange={(e) => setSelectedLang(e.target.value)}
         >
