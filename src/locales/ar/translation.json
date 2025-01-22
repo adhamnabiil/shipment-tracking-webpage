@@ -19,5 +19,12 @@
   "Order is delivered": "تم التوصيل",
   "Delivered": "تم التوصيل",
   "Returned": "تم استرجاع الطلب",
-  "Deleted": "تم حذف الطلب"
+  "Deleted": "تم حذف الطلب",
+  "showMore": "مزيد",
+  "showLess": "اقل",
+  "Order is being returned to the shipper": "يتم ارجاع الطلب للشاحن",
+  "Order is canceled and it will be returned back to the shipper": "تم الغاء الطلب و سنقوم بارجاعه للشاحن",
+  "Order is being prepared for return to the shipper": "يتم تجهيز الطلب للارجاع للشاحن",
+  "Order is returned back to the shipper": "تم ارجاع الطلب للشاحن",
+  "Order is out for return to the shipper": "تم خروج الطلب للعودة للشاحن"
 }

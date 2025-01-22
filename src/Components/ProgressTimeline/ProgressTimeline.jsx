@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 export default function ProgressTimeline({ order, selectedLang }) {
   const [eventsGroupedByDate, setEventsGroupedByDate] = useState({});
   const [orderedDates, setOrderedDates] = useState([]);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const { t } = useTranslation();
 
   // Grouping the transit events by date
@@ -47,61 +48,85 @@ export default function ProgressTimeline({ order, selectedLang }) {
   }
 
   return (
-    <div className="max-w-[900px] mx-auto px-4">
-      {!order.TransitEvents ? (
-        <h1
-          className={`text-[20px] ${
-            selectedLang === "ar" && "text-right"
-          } text-[#667085] font-[600]`}
-        >
-          {t("noDetails")}
-        </h1>
-      ) : (
-        <>
+    <div className="pb-8">
+      {/* set max height on collapse to hide events */}
+      <div
+        className={`relative max-w-[900px] ${
+          isCollapsed && "max-h-[500px] overflow-hidden"
+        } mx-auto px-4 mb-6`}
+      >
+        {!order.TransitEvents ? (
           <h1
-            className={`text-[20px] text-[#667085] ${
+            className={`text-[20px] ${
               selectedLang === "ar" && "text-right"
-            } font-[600]`}
+            } text-[#667085] font-[600]`}
           >
-            {t("detailsTitle")}
+            {t("noDetails")}
           </h1>
+        ) : (
+          <>
+            <h1
+              className={`text-[20px] text-[#667085] ${
+                selectedLang === "ar" && "text-right"
+              } font-[600]`}
+            >
+              {t("detailsTitle")}
+            </h1>
 
-          {/* timeline */}
-          <div className="my-6">
-            {orderedDates.map((date) => {
-              dateFormat(date);
-              return (
-                <div
-                  key={date}
-                  className={`relative after:absolute after:top-[25px] ${
-                    selectedLang === "en"
-                      ? "after:left-[7px]"
-                      : "after:right-[7px]"
-                  } after:w-[2px] after:h-[100%] after:bg-[#d0d5dd] after:content-['']`}
-                >
+            {/* timeline */}
+            <div className="my-6">
+              {orderedDates.map((date) => {
+                dateFormat(date);
+                return (
                   <div
-                    className={`flex ${
-                      selectedLang === "ar" && "flex-row-reverse"
-                    } items-center justify-start gap-2 my-6`}
+                    key={date}
+                    className={`relative after:absolute after:top-[25px] ${
+                      selectedLang === "en"
+                        ? "after:left-[7px]"
+                        : "after:right-[7px]"
+                    } after:w-[2px] after:h-[100%] after:bg-[#d0d5dd] after:content-['']`}
                   >
-                    <div className="w-[15px] h-[15px] bg-[#d0d5dd] rounded-full"></div>
-                    <h2 className="text-[black] font-[600]">
-                      {dateFormat(date)}
-                    </h2>
+                    <div
+                      className={`flex ${
+                        selectedLang === "ar" && "flex-row-reverse"
+                      } items-center justify-start gap-2 my-6`}
+                    >
+                      <div className="w-[15px] h-[15px] bg-[#d0d5dd] rounded-full"></div>
+                      <h2 className="text-[black] font-[600]">
+                        {dateFormat(date)}
+                      </h2>
+                    </div>
+                    {eventsGroupedByDate[date]?.map((event, index) => (
+                      <TimelineDisplay
+                        event={event}
+                        key={index}
+                        selectedLang={selectedLang}
+                      />
+                    ))}
                   </div>
-                  {eventsGroupedByDate[date]?.map((event, index) => (
-                    <TimelineDisplay
-                      event={event}
-                      key={index}
-                      selectedLang={selectedLang}
-                    />
-                  ))}
-                </div>
-              );
-            })}
-          </div>
-        </>
-      )}
+                );
+              })}
+            </div>
+          </>
+        )}
+        {isCollapsed && (
+          <div className="absolute top-0 translate-y-[30px] w-full h-full bg-gradient-to-b from-transparent to-white z-[10]"></div>
+        )}
+      </div>
+      {/* collapse button */}
+      <div>
+        <button
+          onClick={() => setIsCollapsed((prev) => !prev)}
+          className="flex items-center justify-self-center text-[#0098A5] text-[16px]"
+        >
+          {isCollapsed ? `${t("showMore")}` : `${t("showLess")}`}
+          {isCollapsed ? (
+            <img src="./arrowUp.png" alt="arrow" />
+          ) : (
+            <img src="./arrowDown.png" alt="arrow" />
+          )}
+        </button>
+      </div>
     </div>
   );
 }

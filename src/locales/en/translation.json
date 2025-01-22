@@ -19,5 +19,13 @@
   "Order is delivered": "Order is delivered",
   "Delivered": "Delivered",
   "Returned": "Returned",
-  "Deleted": "Deleted"
+  "Deleted": "Deleted",
+  "showMore": "More",
+  "showLess": "Less",
+  "Order is going to be returned back to the shipper after 3 failed delivery attempts": "Order is going to be returned back to the shipper after 3 failed delivery attempts",
+  "Order is being returned to the shipper": "Order is being returned to the shipper",
+  "Order is canceled and it will be returned back to the shipper": "Order is canceled and it will be returned back to the shipper",
+  "Order is being prepared for return to the shipper": "Order is being prepared for return to the shipper",
+  "Order is returned back to the shipper": "Order is returned back to the shipper",
+  "Order is out for return to the shipper": "Order is out for return to the shipper"
 }
