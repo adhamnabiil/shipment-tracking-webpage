@@ -1,3 +1,7 @@
+.container {
+  @apply flex flex-col sm:flex-row items-start sm:items-stretch justify-center text-center py-4;
+}
+
 .step {
   @apply relative flex flex-row items-center gap-4 sm:flex-col justify-start sm:text-center px-[20px] sm:px-[36px] py-[25px];
 }
@@ -27,7 +31,10 @@
     #d0d5dd 7px,
     #d0d5dd 14px
   );
-  @media (min-width: 640px) {
+}
+
+@media (min-width: 640px) {
+  .step:not(:first-child):before {
     background: repeating-linear-gradient(
       to right,
       transparent 0,
@@ -47,7 +54,10 @@
     transparent 7px,
     transparent 14px
   );
-  @media (min-width: 640px) {
+}
+
+@media (min-width: 640px) {
+  .step:not(:last-child):after {
     background: repeating-linear-gradient(
       to right,
       #d0d5dd 0,
