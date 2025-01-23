@@ -14,7 +14,7 @@ export default function App() {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [selectedLang, setSelectedLang] = useState("en");
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   //change language when the selected language changes
   useEffect(() => {
@@ -70,7 +70,7 @@ export default function App() {
       {isLoading ? (
         <Loading />
       ) : error ? (
-        <div className="text-center mt-20">{error}</div>
+        <div className="text-center mt-20">{t("error")}</div>
       ) : !order ? (
         <></>
       ) : (

@@ -27,5 +27,6 @@
   "Order is canceled and it will be returned back to the shipper": "Order is canceled and it will be returned back to the shipper",
   "Order is being prepared for return to the shipper": "Order is being prepared for return to the shipper",
   "Order is returned back to the shipper": "Order is returned back to the shipper",
-  "Order is out for return to the shipper": "Order is out for return to the shipper"
+  "Order is out for return to the shipper": "Order is out for return to the shipper",
+  "error": "oops! Invalid tracking number"
 }
